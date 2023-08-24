@@ -10,7 +10,7 @@ type BuyButtonProps = {
 
 export function BuyButton({nftDetail}: BuyButtonProps) {
     const {connection} = useConnection();
-    const {publicKey, sendTransaction} = useWallet();
+    const {publicKey, signTransaction} = useWallet();
     if (!publicKey) {
         return <></>
     }
@@ -26,7 +26,7 @@ export function BuyButton({nftDetail}: BuyButtonProps) {
 
         const encodedTransaction = buyResult.encoded_transaction;
 
-        await confirmEncodedTransaction(encodedTransaction, connection, sendTransaction);
+        await confirmEncodedTransaction(encodedTransaction, connection, signTransaction!);
     };
 
     const isOwner = publicKey?.toBase58() == nftDetail.nft_address;
