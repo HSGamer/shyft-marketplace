@@ -31,7 +31,15 @@ export function ListNft() {
     const nftElements = nfts.map(nftDetail => <ListNftItem nftDetail={nftDetail} />)
 
     return (
-        <SimpleGrid cols={4} spacing="xl">
+        <SimpleGrid
+            cols={4}
+            spacing="lg"
+            breakpoints={[
+                { maxWidth: '62rem', cols: 3, spacing: 'md' },
+                { maxWidth: '48rem', cols: 2, spacing: 'sm' },
+                { maxWidth: '36rem', cols: 1, spacing: 'sm' },
+            ]}
+        >
             {nftElements}
         </SimpleGrid>
     );
