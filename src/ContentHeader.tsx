@@ -3,6 +3,7 @@ import {WalletMultiButton} from "@solana/wallet-adapter-react-ui";
 
 import "@solana/wallet-adapter-react-ui/styles.css"
 import {CreateNftButton} from "./component/CreateNftButton.tsx";
+import {ListNftButton} from "./component/ListNftButton.tsx";
 
 export function ContentHeader() {
     return <Header height={rem(60)}>
@@ -15,6 +16,7 @@ export function ContentHeader() {
 
                 <Flex align="center" gap="sm">
                     <CreateNftButton />
+                    <ListNftButton />
                 </Flex>
 
                 <WalletMultiButton />
