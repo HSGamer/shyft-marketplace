@@ -6,7 +6,7 @@ import "@solana/wallet-adapter-react-ui/styles.css"
 
 export function ContentHeader() {
     return <Header height={rem(60)}>
-        <Container fluid>
+        <Container fluid mt={10}>
             <Flex justify="space-between" align="center">
                 <MantineLogo size={28} />
 
