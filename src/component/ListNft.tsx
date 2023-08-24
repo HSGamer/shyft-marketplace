@@ -1,4 +1,4 @@
-import { SimpleGrid } from "@mantine/core";
+import {Center, Loader, SimpleGrid} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {shyft} from "../util/ShyftUtil.ts";
 import {marketplaceAddress} from "../Constants.ts";
@@ -6,7 +6,7 @@ import {ListedNftDetail} from "@shyft-to/js";
 import {ListNftItem} from "./ListNftItem.tsx";
 
 export function ListNft() {
-    const [nfts, setNfts] = useState<ListedNftDetail[]>([])
+    const [nfts, setNfts] = useState<ListedNftDetail[] | undefined>(undefined)
 
     useEffect(() => {
         async function fetchListNft() {
@@ -19,6 +19,14 @@ export function ListNft() {
 
         fetchListNft().catch(console.error)
     }, []);
+
+    if (!nfts) {
+        return (
+            <Center>
+                <Loader />
+            </Center>
+        )
+    }
 
     const nftElements = nfts.map(nftDetail => <ListNftItem nftDetail={nftDetail} />)
 
