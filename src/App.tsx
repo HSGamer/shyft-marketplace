@@ -4,12 +4,12 @@ import {clusterApiUrl} from '@solana/web3.js';
 import {useMemo} from 'react';
 
 import {MantineProvider} from '@mantine/core';
-import {network} from "./Constants.ts";
+import {walletNetwork} from "./Constants.ts";
 import {Content} from "./Content.tsx";
 import {ContentHeader} from "./ContentHeader.tsx";
 
 export default function App() {
-    const endpoint = useMemo(() => clusterApiUrl(network.walletNetwork), []);
+    const endpoint = useMemo(() => clusterApiUrl(walletNetwork), []);
     const wallets = useMemo(() => [], []);
 
     return (
