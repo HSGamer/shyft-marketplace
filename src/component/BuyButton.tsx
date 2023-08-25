@@ -29,7 +29,7 @@ export function BuyButton({nftDetail}: BuyButtonProps) {
         await confirmEncodedTransaction(encodedTransaction, connection, signTransaction!);
     };
 
-    const isOwner = publicKey?.toBase58() == nftDetail.nft_address;
+    const isOwner = publicKey.toBase58() == nftDetail.seller_address;
 
     return isOwner
         ? (
